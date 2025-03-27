@@ -1,0 +1,32 @@
+[package]
+name = "pds_project"
+version = "0.1.0"
+edition = "2021"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+iced = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6", default-features = false, features = ["advanced", "canvas", "image_rs", "image", "svg", "tokio"]}
+
+[target.'cfg(not(target_os = "linux"))'.dependencies]
+iced = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6", features = ["advanced", "canvas", "image_rs", "image", "svg", "tokio"]}
+
+[dependencies]
+#iced = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6", default-features = false, features = ["advanced", "canvas", "image_rs", "image", "svg", "tokio"]}
+iced_tiny_skia = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6"}
+iced_graphics = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6"}
+iced_renderer = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6"}
+iced_futures = {git = "https://github.com/iced-rs/iced", rev = "b5f102c55835cf42427f9f8672634e81a5d724f6"}
+
+image = "0.24.6"
+global-hotkey = "0.2.1"
+screenshots = "0.5.4"
+tiny-skia = "0.9.0"
+rfd = "0.11.4"
+chrono = "0.4.26"
+time = { version = "0.3.5", features = ["local-offset"] }
+tokio = "1.0"
+rodio = "0.17.1"
+# Temporary, due to a bug in tiny-skia
+tiny-skia-path = "0.9.0"
+arboard = { version = "3.2.0", features = ["wl-clipboard-rs", "wayland-data-control"] }
+[target.'cfg(target_os = "windows")'.dependencies]
+winreg = "0.50"

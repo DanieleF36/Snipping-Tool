@@ -1,0 +1,17 @@
+/target
+.idea
+.DS_store
+
+# The config is user specific
+config.config
+!tests/config.config
+
+# Avoid accidentally uploading screenshots
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+
+# Allow PNGs in the tests folder
+!tests/*.png
